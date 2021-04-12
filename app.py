@@ -47,10 +47,10 @@ def after_request(response):
     return response
 
 
-CORS(recipe, origins=['http://localhost:3000'], supports_credentials=True)
+CORS(recipe, origins=['http://localhost:3000', 'https://cook-it-00.herokuapp.com'], supports_credentials=True)
 app.register_blueprint(recipe, url_prefix='/api/v1/recipes')
 
-CORS(user, origins=['http://localhost:3000'], supports_credentials=True)
+CORS(user, origins=['http://localhost:3000', 'https://cook-it-00.herokuapp.com'], supports_credentials=True)
 app.register_blueprint(user, url_prefix='/api/v1/users')
 
 
