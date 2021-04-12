@@ -1,3 +1,4 @@
+import os
 from peewee import *
 # from peewee import PostgresqlDatabase, CharField, DateTimeField, Model
 from datetime import datetime
@@ -5,7 +6,16 @@ from flask_login import UserMixin
 
 # you have to manually create the database yourself.
 # `createdb recipes` in your terminal
-DATABASE = PostgresqlDatabase('recipes')
+from playhouse.db_url import connect
+
+if 'ON_HEROKU' in os.environ:
+    DATABASE = connect(os.environ.get('DATABASE_URL'))
+
+else: 
+    DATABASE = PostgresqlDatabase('recipes')
+ 
+
+
 
 
 class RecipeUser(UserMixin, Model):

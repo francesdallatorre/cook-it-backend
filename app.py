@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, g
 from flask_cors import CORS
 from flask_login import LoginManager
@@ -70,6 +71,12 @@ def hello(name):
     return f'Hello {name}'
     # return f'Hello {}'.format(name)
 
+
+
+
+if 'ON_HEROKU' in os.environ:
+    print('\non heroku!')
+    models.initialize()
 
 if __name__ == '__main__':
     models.initialize()
