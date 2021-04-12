@@ -58,7 +58,7 @@ app.register_blueprint(user, url_prefix='/api/v1/users')
 def index():
     my_list = ['Fancy', 'Flask', 'application']
     # return jsonify(my_list)
-    return jsonify(name='Phil', fav_language='Python')
+    return jsonify(name='Frances', fav_language='Python')
 
 
 @app.route('/test')
